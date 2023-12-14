@@ -20,8 +20,3 @@ nav {
 nav a {
   margin-right: 16px;
 }
-
-nav a.active {
-  text-decoration: none;
-  font-weight: bold;
-}
