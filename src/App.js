@@ -20,6 +20,8 @@ function App() {
 
       {/* Nested Route : A common use case is of layout containing its nested pages */}
       <Route path="products" element={<Products />}>
+        {/* index route : when making one of the nested route to be rendered at the parent url  */}
+        <Route index element={<FeaturedProducts />} />
         <Route path="featured" element={<FeaturedProducts />}></Route>
         <Route path="new" element={<NewProducts />}></Route>
       </Route>
