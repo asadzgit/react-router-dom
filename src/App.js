@@ -4,6 +4,9 @@ import Home from "./components/Home";
 import { Navbar } from "./components/Navbar";
 import NoPage from "./components/NoPage";
 import { OrderSummary } from "./components/OrderSummary";
+import { Products } from "./components/Products";
+import { FeaturedProducts } from "./components/FeaturedProducts";
+import { NewProducts } from "./components/NewProducts";
 
 function App() {
   return (
@@ -14,6 +17,12 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="order-summary" element={<OrderSummary />} />
+
+      {/* Nested Route : A common use case is of layout containing its nested pages */}
+      <Route path="products" element={<Products />}>
+        <Route path="featured" element={<FeaturedProducts />}></Route>
+        <Route path="new" element={<NewProducts />}></Route>
+      </Route>
       <Route path="*" element={<NoPage />} />
     </Routes>
     </>
