@@ -1,3 +1,5 @@
+import { Outlet } from "react-router-dom";
+
 export const Users = () => {
   return (
     <>
@@ -7,6 +9,7 @@ export const Users = () => {
         <li>User 2</li>
         <li>User 3</li>
       </ul>
+      <Outlet />
     </>
   )
 };

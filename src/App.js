@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import About from "./components/About";
+import { Admin } from "./components/Admin";
 import Home from "./components/Home";
 import { Navbar } from "./components/Navbar";
 import NoPage from "./components/NoPage";
@@ -27,8 +28,10 @@ function App() {
         <Route path="featured" element={<FeaturedProducts />}></Route>
         <Route path="new" element={<NewProducts />}></Route>
       </Route>
-      <Route path="users" element={<Users />}></Route>
-      <Route path="users/:userId" element={<UserDetails />}></Route>
+      <Route path="users" element={<Users />}>
+        <Route path=":userId" element={<UserDetails />}></Route>
+        <Route path="admin" element={<Admin />}></Route>
+      </Route>
       <Route path="*" element={<NoPage />} />
     </Routes>
     </>
