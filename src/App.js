@@ -1,5 +1,6 @@
+import React from 'react'; 
 import { Route, Routes } from "react-router-dom";
-import About from "./components/About";
+// import About from "./components/About";
 import { Admin } from "./components/Admin";
 import Home from "./components/Home";
 import { Navbar } from "./components/Navbar";
@@ -10,6 +11,7 @@ import { FeaturedProducts } from "./components/FeaturedProducts";
 import { NewProducts } from "./components/NewProducts";
 import { Users } from "./components/Users";
 import { UserDetails } from "./components/UserDetails";
+const LazyAbout = React.lazy(() => import("./components/About"));
 
 function App() {
   return (
@@ -18,7 +20,14 @@ function App() {
     <Routes>
     {/* we are doing this for our within-app routes. but for links to external resources, use anchor tag */}
       <Route path="/" element={<Home />} />
-      <Route path="about" element={<About />} />
+      <Route
+        path="about"
+        element={
+          <React.Suspense fallback='Loading...'>
+            <LazyAbout />
+          </React.Suspense>
+        }
+      />
       <Route path="order-summary" element={<OrderSummary />} />
 
       {/* Nested Route : A common use case is of layout containing its nested pages */}
